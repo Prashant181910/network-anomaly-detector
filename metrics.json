@@ -1,0 +1,36 @@
+{
+  "random_forest": {
+    "precision": 1.0,
+    "recall": 0.9985,
+    "f1": 0.9993,
+    "roc_auc": 1.0
+  },
+  "isolation_forest": {
+    "precision": 0.8676,
+    "recall": 0.9427,
+    "f1": 0.9036,
+    "roc_auc": 0.9946
+  },
+  "per_family": {
+    "bruteforce": {
+      "rf_recall": 0.9923,
+      "iso_recall": 0.8308,
+      "n": 130
+    },
+    "dos": {
+      "rf_recall": 1.0,
+      "iso_recall": 0.9689,
+      "n": 225
+    },
+    "exfil": {
+      "rf_recall": 1.0,
+      "iso_recall": 0.8765,
+      "n": 81
+    },
+    "portscan": {
+      "rf_recall": 1.0,
+      "iso_recall": 1.0,
+      "n": 245
+    }
+  }
+}
