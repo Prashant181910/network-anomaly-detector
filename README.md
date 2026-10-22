@@ -34,6 +34,8 @@ python detect.py my_flows.csv   # score your own CSV (columns listed in data.py 
 `train.py` writes `artifacts/evaluation.png` (confusion matrix, ROC curves,
 per-attack recall), `feature_importance.png`, `metrics.json` and `model.joblib`.
 
+Sample outputs from one run (`evaluation.png`, `feature_importance.png`, `metrics.json`, `model.joblib`) are included in the repo root. Running `train.py` regenerates them inside `artifacts/`.
+
 ## Results (synthetic data, 22.7k flows, 12% anomalous)
 
 | Model | Precision | Recall | F1 | ROC-AUC |
