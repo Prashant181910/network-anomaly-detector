@@ -1,7 +1,5 @@
 # AI-Based Network Traffic Anomaly Detector
 
-   ![Evaluation](evaluation.png)
-
 A prototype that learns what normal network traffic looks like and flags unusual
 flows using machine learning. It combines ML with networking and cybersecurity
 fundamentals (TCP flags, connection rates, port diversity, byte/packet volume).
@@ -34,8 +32,6 @@ python detect.py my_flows.csv   # score your own CSV (columns listed in data.py 
 `train.py` writes `artifacts/evaluation.png` (confusion matrix, ROC curves,
 per-attack recall), `feature_importance.png`, `metrics.json` and `model.joblib`.
 
-Sample outputs from one run (`evaluation.png`, `feature_importance.png`, `metrics.json`, `model.joblib`) are included in the repo root. Running `train.py` regenerates them inside `artifacts/`.
-
 ## Results (synthetic data, 22.7k flows, 12% anomalous)
 
 | Model | Precision | Recall | F1 | ROC-AUC |
@@ -48,6 +44,24 @@ should not be presented as real-world accuracy. To get credible results, train o
 a public dataset such as **NSL-KDD** or **CIC-IDS2017**: map its columns to the
 `FEATURES` list in `data.py` (or edit `NUMERIC`/`CATEGORICAL`) and run
 `python train.py --csv your_dataset.csv`. The CSV needs `is_anomaly` (0/1) and `label` columns.
+
+## Real-data evaluation (NSL-KDD)
+
+`train_nslkdd.py` trains on the real **NSL-KDD** benchmark (train on `KDDTrain+`,
+evaluate on `KDDTest+`, the official split whose test set contains attack types
+unseen in training). Attacks are grouped into DoS, Probe, R2L and U2R.
+
+```bash
+# 1. Download KDDTrain+.txt and KDDTest+.txt and put them in a folder named nsl-kdd/
+python train_nslkdd.py --dir nsl-kdd
+```
+
+Outputs go to `artifacts_nslkdd/` (model, `metrics.json`, `evaluation.png`).
+
+| Model (KDDTest+) | Precision | Recall | F1 | ROC-AUC |
+|---|---|---|---|---|
+| Random Forest | _fill in from metrics.json_ | | | |
+| Isolation Forest | _fill in from metrics.json_ | | | |
 
 ## Ideas to extend
 
