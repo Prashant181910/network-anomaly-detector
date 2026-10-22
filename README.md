@@ -1,5 +1,7 @@
 # AI-Based Network Traffic Anomaly Detector
 
+   ![Evaluation](evaluation.png)
+
 A prototype that learns what normal network traffic looks like and flags unusual
 flows using machine learning. It combines ML with networking and cybersecurity
 fundamentals (TCP flags, connection rates, port diversity, byte/packet volume).
